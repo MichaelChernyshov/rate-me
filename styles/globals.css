@@ -75,8 +75,11 @@
 
 :root {
   --black: #3b434e;
+  --gray-light: #ebebeb;
+  --gray-light-hover: #e6e6e6;
   --white: white;
   --primary: #7653fc;
+  --primary-hover: #603fe1;
   --red: #fc836d;
   --green: #1dc37e;
   --green-light: #c8f8e4;
