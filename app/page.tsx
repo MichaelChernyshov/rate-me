@@ -4,24 +4,15 @@ import HTag from '@/components/HTag/HTag'
 import P from '@/components/P/P'
 import Rating from '@/components/Rating/Rating'
 import Tag from '@/components/Tag/Tag'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 
 export default function Home() {
-  const [count, setCount] = useState(0)
-
-  useEffect(() => {
-    console.log('Counter ' + count)
-  })
+  const [rating, setRating] = useState<number>(0)
 
   return (
     <>
-      <HTag tag={'h1'}>{count}</HTag>
-      <Button
-        appearence={'primary'}
-        arrow='right'
-        onClick={() => {
-          setCount((x) => x + 1)
-        }}>
+      <HTag tag={'h1'}>Hello</HTag>
+      <Button appearence={'primary'} arrow='right'>
         Butn
       </Button>
       <Button appearence={'ghost'} arrow='right'>
@@ -42,7 +33,7 @@ export default function Home() {
       <Tag size='m' color='primary'>
         DDdd
       </Tag>
-      <Rating rating={4} />
+      <Rating rating={rating} isEditable setRating={setRating} />
     </>
   )
 }
