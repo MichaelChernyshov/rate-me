@@ -2,7 +2,7 @@ import styles from './Button.module.css'
 import { ButtonProps } from './Button.props'
 import cn from 'classnames'
 
-const Button = ({ children, appearence, className, ...props }: ButtonProps) => {
+const Button = ({ children, arrow = 'none', appearence, className, ...props }: ButtonProps) => {
   return (
     <button
       className={cn(styles.button, className, {
@@ -11,6 +11,14 @@ const Button = ({ children, appearence, className, ...props }: ButtonProps) => {
       })}
       {...props}>
       {children}
+      {arrow != 'none' && (
+        <span
+          className={cn(styles.arrow, {
+            [styles.down]: arrow === 'down',
+          })}>
+          f
+        </span>
+      )}
     </button>
   )
 }
