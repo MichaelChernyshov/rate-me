@@ -1,4 +1,5 @@
 'use client'
+import Layout from '@/Layout/Layout'
 import Button from '@/components/Button/Button'
 import HTag from '@/components/HTag/HTag'
 import P from '@/components/P/P'
@@ -10,7 +11,7 @@ export default function Home() {
   const [rating, setRating] = useState<number>(0)
 
   return (
-    <>
+    <Layout>
       <HTag tag={'h1'}>Hello</HTag>
       <Button appearence={'primary'} arrow='right'>
         Butn
@@ -34,6 +35,6 @@ export default function Home() {
         DDdd
       </Tag>
       <Rating rating={rating} isEditable setRating={setRating} />
-    </>
+    </Layout>
   )
 }
