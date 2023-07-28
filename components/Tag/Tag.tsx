@@ -1,8 +1,8 @@
-import { PProps } from './Tag.props'
+import { TagProps } from './Tag.props'
 import styles from './Tag.module.css'
 import cn from 'classnames'
 
-const Tag = ({ children, size = 'm', color = 'ghost', href, className, ...props }: PProps) => {
+const Tag = ({ children, size = 'm', color = 'ghost', href, className, ...props }: TagProps) => {
   return (
     <div
       className={cn(styles.tag, className, {
