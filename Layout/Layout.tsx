@@ -4,6 +4,7 @@ import cn from 'classnames'
 import Header from './Header/Header'
 import Sidebar from './Sidebar/Sidebar'
 import Footer from './Footer/Footer'
+import { FunctionComponent } from 'react'
 
 const Layout = ({ children }: LayoutProps) => {
   return (
@@ -18,4 +19,12 @@ const Layout = ({ children }: LayoutProps) => {
   )
 }
 
-export default Layout
+export const withLayout = <T extends Record<string, unknown>>(Component: FunctionComponent<T>) => {
+  return function withLayoutComponent(props: T) {
+    return (
+      <Layout>
+        <Component {...props} />
+      </Layout>
+    )
+  }
+}

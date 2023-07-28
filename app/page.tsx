@@ -1,5 +1,5 @@
 'use client'
-import Layout from '@/Layout/Layout'
+import { withLayout } from '@/Layout/Layout'
 import Button from '@/components/Button/Button'
 import HTag from '@/components/HTag/HTag'
 import P from '@/components/P/P'
@@ -7,11 +7,11 @@ import Rating from '@/components/Rating/Rating'
 import Tag from '@/components/Tag/Tag'
 import { useState } from 'react'
 
-export default function Home() {
+function Home() {
   const [rating, setRating] = useState<number>(0)
 
   return (
-    <Layout>
+    <>
       <HTag tag={'h1'}>Hello</HTag>
       <Button appearence={'primary'} arrow='right'>
         Butn
@@ -35,6 +35,8 @@ export default function Home() {
         DDdd
       </Tag>
       <Rating rating={rating} isEditable setRating={setRating} />
-    </Layout>
+    </>
   )
 }
+
+export default withLayout(Home)
