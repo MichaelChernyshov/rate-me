@@ -9,7 +9,9 @@ export default function Home() {
       <Button appearence={'primary'} arrow='right'>
         Butn
       </Button>
-      <Button appearence={'ghost'}>Butn</Button>
+      <Button appearence={'ghost'} arrow='right'>
+        Butn
+      </Button>
     </>
   )
 }
