@@ -4,7 +4,7 @@ import { RatingProps } from './Rating.props'
 import styles from './Rating.module.css'
 import cn from 'classnames'
 import StarIcon from './star.svg'
-import { useEffect, useState } from 'react'
+import { useEffect, useState, KeyboardEvent } from 'react'
 
 const Rating = ({ isEditable = false, rating, setRating, ...props }: RatingProps) => {
   const [ratingArray, setRatingArray] = useState<JSX.Element[]>(new Array(5).fill(<></>))
@@ -24,6 +24,8 @@ const Rating = ({ isEditable = false, rating, setRating, ...props }: RatingProps
           onMouseEnter={() => changeDisplay(i + 1)}
           onMouseLeave={() => changeDisplay(rating)}
           onClick={() => onClick(i + 1)}
+          tabIndex={isEditable ? 0 : -1}
+          onKeyDown={(e: KeyboardEvent<SVGElement>) => isEditable && handleSpace(i + 1, e)}
         />
       )
     })
@@ -39,6 +41,13 @@ const Rating = ({ isEditable = false, rating, setRating, ...props }: RatingProps
 
   const onClick = (i: number) => {
     if (!isEditable || !setRating) {
+      return
+    }
+    setRating(i)
+  }
+
+  const handleSpace = (i: number, e: KeyboardEvent<SVGElement>) => {
+    if (e.code != 'Space' || !setRating) {
       return
     }
     setRating(i)
